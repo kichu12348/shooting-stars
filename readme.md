@@ -2,4 +2,4 @@
 
 **hope you like it :)**
 
-https://kichu12348.github.io/shooting-stars
+[check it out](https://kichu12348.github.io/shooting-stars)
