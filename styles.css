@@ -1,114 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
 body, html {
     height: 100%;
     margin: 0;
     overflow: hidden;
+    font-family: 'Poppins', sans-serif;
 }
+
 .night-sky {
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #00152a, #022d5f);
+    background: linear-gradient(to bottom, #0a0a2a 0%, #1a1a4a 50%, #3a3a7a 100%);
     position: relative;
+    overflow: hidden;
 }
+
 .star {
     position: absolute;
-    width: 2px;
-    height: 2px;
-    background-color: white;
-    box-shadow: 0 0 10px white;
+    background-color: #ffffff;
     border-radius: 50%;
-    animation: twinkle 3s ease infinite;
-}
-.shooting-star {
-    position: absolute;
-    background-color: white;
-    border-radius: 50%;
-    animation: shoot 3s ease-out infinite;
-    box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
-    background: linear-gradient(45deg, white, transparent);
-}
-@keyframes shoot {
-    0% {
-        transform: translateX(0) translateY(0);
-        opacity: 1;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(300px) translateY(300px);
-        opacity: 0;
-    }
+    animation: twinkle 3s infinite ease-in-out;
 }
 
 @keyframes twinkle {
-    0% {
-        opacity: 0.3;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.5;
-    }
-    
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
 }
 
-.moon{
+.shooting-star {
     position: absolute;
-    width: 120px;
-    height: 120px;
+    background: linear-gradient(to right, #ffffff, #ffd700);
+    border-radius: 50%;
+    animation: shoot 2s ease-out;
+    opacity: 0;
+}
+
+@keyframes shoot {
+    0% { transform: translate(0, 0) rotate(-45deg) scale(0); opacity: 1; }
+    70% { opacity: 1; }
+    100% { transform: translate(300px, 300px) rotate(-45deg) scale(1); opacity: 0; }
+}
+
+.moon {
+    position: absolute;
+    width: 100px;
+    height: 100px;
     background-color: #f0f0f0;
-    border-radius: 60px;
+    border-radius: 50%;
     top: 50px;
     right: 50px;
-    box-shadow: 0 0 20px 1px #f0f0f0;
+    box-shadow: 0 0 20px 5px rgba(240, 240, 240, 0.8);
 }
 
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.message{
+.message {
     position: absolute;
     bottom: 10%;
     width: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 3s ease-in;
-
-    p{
-        font-size: 2rem;
-        color: white;
-        text-align: center;
-        font-family: 'Dancing Script', cursive;
-        text-shadow: 0 0 10px #f0f0f0;
-    }
+    text-align: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
 
-@media screen and (max-width: 768px) {
-    .moon{
-        width: 80px;
-        height: 80px;
-        border-radius: 40px;
-        top: 30px;
-        right: 30px;
-        box-shadow: 0 0 10px 1px #f0f0f0;
-    }
-
-    .message p{
-        font-size: 1.5rem;
-    }
-    
+.message p {
+    font-size: 2rem;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    font-family: 'Dancing Script', cursive;
+    margin: 0;
+    padding: 20px;
+    display: inline-block;
+    border-radius: 15px;
 }
