@@ -5,9 +5,10 @@ audio.preload = "auto";
 audio.loop = true;
 audio.volume = 0.003;
 audio.play();
+
 function createStar() {
   const star = document.createElement("div");
-  const size = Math.random() * 3 + 1;
+  const size = Math.random() * 4 + 1;
   star.className = "star";
   star.style.left = `${Math.random() * 100}%`;
   star.style.top = `${Math.random() * 100}%`;
@@ -41,12 +42,10 @@ function typeWriter(text, i = 0) {
 }
 
 function showMessage() {
-  message.style.opacity = 0;
-  setTimeout(() => {
-    message.querySelector("p").textContent = "";
+  setTimeout(() => { 
     message.style.opacity = 1;
     typeWriter("Every star in the sky reminds me of you...");
-  }, 1000);
+  }, 5000);
 }
 
 // Initialize
@@ -67,5 +66,5 @@ sky.addEventListener("click", (e) => {
 });
 
 setInterval(createStar, 10000);
-setInterval(createShootingStar, 5000);
-setTimeout(showMessage, 5000);
+setInterval(createShootingStar, 1000);
+showMessage();
