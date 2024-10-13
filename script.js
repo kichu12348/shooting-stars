@@ -4,7 +4,7 @@ const audio = new Audio("./frozenNeptune.mp3");
 audio.preload = "auto";
 audio.loop = true;
 audio.volume = 0.003;
-audio.play();
+
 
 function createStar() {
   const star = document.createElement("div");
@@ -56,6 +56,9 @@ for (let i = 0; i < numberOfStars; i++) {
 
 // Event listeners
 sky.addEventListener("click", (e) => {
+  if (audio.paused) {
+    audio.play();
+  }
   const star = document.createElement("div");
   star.className = "star";
   star.style.left = `${e.clientX}px`;
