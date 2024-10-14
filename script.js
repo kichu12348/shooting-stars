@@ -44,7 +44,7 @@ function typeWriter(text, i = 0) {
 function showMessage() {
   setTimeout(() => { 
     message.style.opacity = 1;
-    typeWriter("Every star in the sky reminds me of you...");
+    typeWriter("Shine bright like a star...");
   }, 5000);
 }
 
